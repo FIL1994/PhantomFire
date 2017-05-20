@@ -1,0 +1,65 @@
+<!--
+Created by: Philip Van Raalte
+    on April 23, 2016
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link href='https://fonts.googleapis.com/css?family=Alegreya+SC' rel='stylesheet' type='text/css'>
+        <title>Kiwi Test</title>
+        <script src="NG/NG.min.js"></script>
+        <script src="lib/jquery/jquery-2.2.3.min.js"></script>
+        <script src="NG/NGConnect.js"></script>
+        <script src="lib/howler/howler.min.js"></script>
+        <script type="text/javascript" src="kiwi/kiwi.js"></script>
+        <script src="groups.js"></script>
+        <script type="text/javascript" src="myObjects.js"></script>
+        <!--STATES-->
+        <script src="states/levelSelect.js"></script>
+        <script src="states/level1.js"></script>
+        <script src="states/level2.js"></script>
+        <script src="states/level3.js"></script>
+        <script src="states/level4.js"></script>
+        <script src="states/level5.js"></script>
+        <script src="states/level6.js"></script>
+        <script src="states/level7.js"></script>
+        <script src="states/level8.js"></script>
+        <script src="states/preloader.js"></script>
+        <script src="states/loading.js"></script>
+        <!--START GAME-->
+        <script type="text/javascript" src="start.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="NG/NG.css">
+    </head>
+    <body>
+        <script>
+            document.onmousedown = function() { window.focus(); };
+
+            document.onkeydown = function(evt) {
+                evt = evt || window.event;
+                var keyCode = evt.keyCode;
+                if (keyCode >= 37 && keyCode <= 40 || keyCode == 32 ) {
+                    return false;
+                }
+            };
+        </script>
+        <div id="txtLoading">
+            <p>Phantom Fire</p>
+        </div>
+        <img src="loadingImage.png" alt="loading image" id="imgKiwiLogo" class="">
+        <div id="focusDiv"></div>
+        <div id="myFrameDiv">
+            <iframe src="levelSelectUI.html" width="640px" height="480px" frameBorder="0" id="frameLevelSelect"
+                class="hidden"></iframe>
+        </div>
+        <div id="divScore" class="hidden levelUI">
+            <p>Score: 0</p>
+        </div>
+        <div id="divCombo" class="hidden levelUI">
+            <p>Combo: 0</p>
+        </div>
+        <button type="button" id="btnFocus"></button>
+    </body>
+</html>

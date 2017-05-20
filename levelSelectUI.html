@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link href='https://fonts.googleapis.com/css?family=Alegreya+SC' rel='stylesheet' type='text/css'>
+        <script src="lib/sweetalert2/sweetalert2.min.js"></script>
+        <title>Level Select</title>
+        <style>
+            #sectionLevelSelect {
+                background:none transparent;
+                text-align: center;
+                font-family: 'Alegreya SC', serif;
+                color: white;
+            }
+
+            .levelSelectButton {
+                font-family: 'Alegreya SC', serif;
+                -moz-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+                -webkit-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+                box-shadow:inset 0px 1px 0px 0px #97c4fe;
+                background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #3d94f6), color-stop(1, #1e62d0) );
+                background:-moz-linear-gradient( center top, #3d94f6 5%, #1e62d0 100% );
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6', endColorstr='#1e62d0');
+                background-color:#3d94f6;
+                -webkit-border-top-left-radius:20px;
+                -moz-border-radius-topleft:20px;
+                border-top-left-radius:20px;
+                -webkit-border-top-right-radius:20px;
+                -moz-border-radius-topright:20px;
+                border-top-right-radius:20px;
+                -webkit-border-bottom-right-radius:20px;
+                -moz-border-radius-bottomright:20px;
+                border-bottom-right-radius:20px;
+                -webkit-border-bottom-left-radius:20px;
+                -moz-border-radius-bottomleft:20px;
+                border-bottom-left-radius:20px;
+                text-indent:0;
+                border:1px solid #337fed;
+                display:inline-block;
+                color:#ffffff;
+                font-size:12px;
+                font-weight:normal;
+                font-style:normal;
+                height:48px;
+                line-height:48px;
+                width:80px;
+                text-decoration:none;
+                text-align:center;
+                text-shadow:1px 1px 0px #1570cd;
+            }
+
+            .levelSelectButton:hover {
+                background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #1e62d0), color-stop(1, #3d94f6) );
+                background:-moz-linear-gradient( center top, #1e62d0 5%, #3d94f6 100% );
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#3d94f6');
+                background-color:#1e62d0;
+                cursor: pointer;
+            }
+
+            .levelSelectButton:active {
+                background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #1121d0), color-stop(1, #3157f6) );
+                background:-moz-linear-gradient( center top, #0b18d0 5%, #395ef6 100% );
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#3d94f6');
+                background-color: #194bd0;
+            }
+
+            .levelSelectButton {
+                position: fixed;
+                z-index: 1;
+            }
+
+            #btnLvl1 {
+                top: 120px;
+                left: 150px;
+            }
+            #btnLvl2 {
+                top: 120px;
+                left: 240px;
+            }
+            #btnLvl3 {
+                top: 120px;
+                left: 330px;
+            }
+            #btnLvl4 {
+                top: 120px;
+                left: 420px;
+            }
+
+            #btnLvl5 {
+                top: 220px;
+                left: 150px;
+            }
+            #btnLvl6 {
+                top: 220px;
+                left: 240px;
+            }
+            #btnLvl7 {
+                top: 220px;
+                left: 330px;
+            }
+            #btnLvl8 {
+                top: 220px;
+                left: 420px;
+            }
+
+            #btnMusic {
+                bottom: 90px;
+                left: 220px;
+                width: 75px;
+
+            }
+            #btnSfx {
+                bottom: 90px;
+                right: 220px;
+                width: 75px;
+            }
+            #btnControls {
+                bottom: 30px;
+                right: 242px;
+                width: 150px;
+            }
+            #btnHowToPlay {
+                bottom: 35px;
+                right: 35px;
+                width: 90px;
+            }
+            #txtTotalScore p {
+                position: fixed;
+                bottom: 10px;
+                left: 40px;
+            }
+        </style>
+        <link rel="stylesheet" type="text/css" href="lib/sweetalert2/sweetalert2.min.css">
+    </head>
+    <body>
+        <section id="sectionLevelSelect">
+        <h1>Phantom Fire</h1>
+            <div id="txtTotalScore">
+                <p>Total Score: 0</p>
+            </div>
+            <div id="txtLvlComplete" style="text-align: center; font-size: 14px;">
+                <p></p>
+            </div>
+            <button type="button" class="levelSelectButton" id="btnLvl1">Level 1</button>
+            <button type="button" class="levelSelectButton" id="btnLvl2">Level 2</button>
+            <button type="button" class="levelSelectButton" id="btnLvl3">Level 3</button>
+            <button type="button" class="levelSelectButton" id="btnLvl4">Level 4</button>
+            <button type="button" class="levelSelectButton" id="btnLvl5">Level 5</button>
+
+            <button type="button" class="levelSelectButton" id="btnLvl6">Level 6</button>
+            <button type="button" class="levelSelectButton" id="btnLvl7">Level 7</button>
+            <button type="button" class="levelSelectButton" id="btnLvl8">Level 8</button>
+
+            <button type="button" class="levelSelectButton" id="btnMusic">Music On</button>
+            <button type="button" class="levelSelectButton" id="btnSfx">Sfx On</button>
+            <button type="button" class="levelSelectButton" id="btnControls">Mouse Controls On</button>
+            <button type="button" class="levelSelectButton" id="btnHowToPlay" onclick="howToPlay()">How to Play</button>
+        </section>
+        <script>
+            function howToPlay(){
+                swal("How to Play", "Arrow keys or mouse : move\nWASD : shoot\nM : go to menu\n\nShoot the same coloured " +
+                        "blocks to get\na combo and get more points", "info");
+            }
+        </script>
+    </body>
+</html>
